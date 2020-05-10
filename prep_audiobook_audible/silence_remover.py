@@ -6,6 +6,10 @@ from pydub import AudioSegment
 def remove_sil(path_in, path_out, format="wav"):
     sound = AudioSegment.from_file(path_in, format=format)
     print("sound",sound)
+    # print()
+    # tmpAudioSegment = AudioSegment.silent(duration=1000*(6*60+31*60), frame_rate=44100)
+    # return
+
     tmpSound =  AudioSegment.empty()
     # non_sil_times = detect_nonsilent(sound, min_silence_len=50, silence_thresh=sound.dBFS * 1.5)
     # non_sil_times = detect_nonsilent(sound, min_silence_len=30, silence_thresh=sound.dBFS * 1.5)
@@ -32,7 +36,7 @@ def remove_sil(path_in, path_out, format="wav"):
             print("int",int)
         tmpSound.export(path_out)
 
-
+# https://audiosegment.readthedocs.io/en/latest/audiosegment.html
 
 # remove_sil("ThePoetsCorner.mp3", "ThePoetsCorner_silence-removed.wav.mp3")
 remove_sil("totakas-song.wav","totakas-song_silence-removed.wav")
