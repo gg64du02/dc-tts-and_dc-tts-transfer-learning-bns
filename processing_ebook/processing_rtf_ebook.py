@@ -31,10 +31,11 @@ try:
    # for bits in strPictTmp3:
    #    print("strPictTmp3 bits",bits)
 
-   strPictTmp8 = re.split("....shppict[\Wa-z0-9]*}}",strBook)
-   for bits in strPictTmp8:
-      print("strPictTmp8 bits",bits)
-   print("len(strPictTmp8)",len(strPictTmp8))
+   # strPictTmp8 = re.split("....shppict[\Wa-z0-9]*}}",strBook)
+   strPictTmp8 = re.split("{\\\\\*\\\\shppict[\Wa-z0-9]*}}",strBook)
+   # for bits in strPictTmp8:
+   #    print("strPictTmp8 bits",bits)
+   # print("len(strPictTmp8)",len(strPictTmp8))
 
    # {\\ql[\WA-Z]*} {.\n{\\qc
    # {\\ql[\WA-Z]*{\\qc
@@ -69,9 +70,9 @@ try:
 
    # strPoemsTmp3 = re.split("\n{\\\\qc",strBook)
    strPoemsTmp3 = re.split("{\\\\ql\n.*} {",strBook)
-   for bits in strPoemsTmp3:
-      print("strPoemsTmp3 bits",bits)
-   print("len(strPoemsTmp3)",len(strPoemsTmp3))
+   # for bits in strPoemsTmp3:
+   #    print("strPoemsTmp3 bits",bits)
+   # print("len(strPoemsTmp3)",len(strPoemsTmp3))
 
 
    stru8220Tmp1 = re.split("\\\\u8220.*",strBook)
