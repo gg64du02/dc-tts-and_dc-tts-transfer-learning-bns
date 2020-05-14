@@ -59,7 +59,9 @@ try:
    strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}]*",strBook)
    strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*",strBook)
    strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*\t",strBook)
-   # strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*\t",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{.,;-]*\t",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-?]*\t",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]*\t",strBook)
    for bits in strPictTmp9:
       print("strPictTmp9 bits",bits)
    print("len(strPictTmp9)",len(strPictTmp9))
