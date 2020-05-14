@@ -5,14 +5,21 @@ try:
    f = open("./test/B00FORPEAA_EBOK.txt", encoding = 'utf-8')
    # perform file operations
    strBook = f.read()
-   print("strBook",strBook)
+   # print("strBook",strBook)
    # {\ql
 
    # POEMS
-   strPoemsTmp = strBook.split('{\ql')
-   # print("strPoemsTmp",strPoemsTmp)
-   # for bits in strPoemsTmp:
-   #    print("bits",bits)
+   strPoemsTmp1 = strBook.split('{\ql')
+   # print("strPoemsTmp1",strPoemsTmp1)
+   # for bits in strPoemsTmp1:
+   #    print("strPoemsTmp1 bits",bits)
+   # strPoemsTmp2 = strBook.split('{\\ql[\WA-Z0-9]*{\\qc')
+   strPoemsTmp2 = strBook.split('} {')
+   # print("strPoemsTmp2",strPoemsTmp2)
+   # for bits in strPoemsTmp2:
+   #    print("strPoemsTmp2 bits",bits)
+   # print("len(strPoemsTmp1)",len(strPoemsTmp1))
+   # print("len(strPoemsTmp2)",len(strPoemsTmp2))
 
    strPictTmp1 = strBook.split('{\*\shppict')
    # for bits in strPictTmp1:
@@ -25,9 +32,37 @@ try:
    #    print("strPictTmp3 bits",bits)
 
    strPictTmp8 = re.split("....shppict[\Wa-z0-9]*}}",strBook)
-   for bits in strPictTmp8:
-      print("strPictTmp8 bits",bits)
-   print("len(strPictTmp8)",len(strPictTmp8))
+   # for bits in strPictTmp8:
+   #    print("strPictTmp8 bits",bits)
+   # print("len(strPictTmp8)",len(strPictTmp8))
+
+   # {\\ql[\WA-Z]*} {.\n{\\qc
+   # {\\ql[\WA-Z]*{\\qc
+   # {.ql[\WA-Z]*{.qc
+   # strPictTmp9 = re.split("{.qc",strBook)
+   # strPictTmp9 = re.split("{.ql",strBook)
+   # strPictTmp9 = re.split("[A-Z]*} {",strBook)
+   # ql[\Wa - zA - Z0 - 9]*{
+   # strPictTmp9 = re.split("[a-zA-Z0-9]*{\\\\qc",strBook)
+   # strPictTmp9 = re.split("{\\\\ql[a-zA-Z0-9]*{\\\\qc",strBook)
+   # ql[\Wa - zA - Z0 - 9]*qc
+   # strPictTmp9 = re.split("{\\\\ql",strBook)
+   # strPictTmp9 = re.split("{\\\\ql",strBook)
+
+   # strPictTmp9 = re.split("\\\\qc",strBook)
+   # 420 qc
+   # strPictTmp9 = re.split("ql\n[\ a-zA-Z\\\\\}]*} {*",strBook)
+   # strPictTmp9 = re.split("\\\\ql",strBook)
+   # strPictTmp9 = re.split("[\d]*",strBook)
+   strPictTmp9 = re.split("{\\\\ql",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ ]*",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}]*",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*\t",strBook)
+   # strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*\t",strBook)
+   for bits in strPictTmp9:
+      print("strPictTmp9 bits",bits)
+   print("len(strPictTmp9)",len(strPictTmp9))
 #
 finally:
    f.close()
