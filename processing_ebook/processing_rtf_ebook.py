@@ -32,9 +32,9 @@ try:
    #    print("strPictTmp3 bits",bits)
 
    strPictTmp8 = re.split("....shppict[\Wa-z0-9]*}}",strBook)
-   # for bits in strPictTmp8:
-   #    print("strPictTmp8 bits",bits)
-   # print("len(strPictTmp8)",len(strPictTmp8))
+   for bits in strPictTmp8:
+      print("strPictTmp8 bits",bits)
+   print("len(strPictTmp8)",len(strPictTmp8))
 
    # {\\ql[\WA-Z]*} {.\n{\\qc
    # {\\ql[\WA-Z]*{\\qc
@@ -49,26 +49,26 @@ try:
    # strPictTmp9 = re.split("{\\\\ql",strBook)
    # strPictTmp9 = re.split("{\\\\ql",strBook)
 
-   # strPictTmp9 = re.split("\\\\qc",strBook)
+   strPoemsTmp3 = re.split("\\\\qc",strBook)
    # 420 qc
-   # strPictTmp9 = re.split("ql\n[\ a-zA-Z\\\\\}]*} {*",strBook)
-   # strPictTmp9 = re.split("\\\\ql",strBook)
-   # strPictTmp9 = re.split("[\d]*",strBook)
-   strPictTmp9 = re.split("{\\\\ql",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ ]*",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}]*",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*\t",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{.,;-]*\t",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-?]*\t",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]*\t",strBook)
-   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]+\t",strBook)
-   strPictTmp9 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{]+",strBook)
-   strPictTmp9 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?]+",strBook)
-   strPictTmp9 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?\(\)]+",strBook)
-   for bits in strPictTmp9:
-      print("strPictTmp9 bits",bits)
-   print("len(strPictTmp9)",len(strPictTmp9))
+   # strPoemsTmp3 = re.split("ql\n[\ a-zA-Z\\\\\}]*} {*",strBook)
+   # strPoemsTmp3 = re.split("\\\\ql",strBook)
+   # strPoemsTmp3 = re.split("[\d]*",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z\ ]*",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}]*",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{]*\t",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{.,;-]*\t",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-?]*\t",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]*\t",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]+\t",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{]+",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?]+",strBook)
+   strPoemsTmp3 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?\(\)]+",strBook)
+   for bits in strPoemsTmp3:
+      print("strPoemsTmp3 bits",bits)
+   print("len(strPoemsTmp3)",len(strPoemsTmp3))
 
 
    stru8220Tmp1 = re.split("\\\\u8220.*",strBook)
