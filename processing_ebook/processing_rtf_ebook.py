@@ -62,9 +62,20 @@ try:
    strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z\ \\\\\}\{.,;-]*\t",strBook)
    strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-?]*\t",strBook)
    strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]*\t",strBook)
+   strPictTmp9 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]+\t",strBook)
+   strPictTmp9 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{]+",strBook)
+   strPictTmp9 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?]+",strBook)
+   strPictTmp9 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?\(\)]+",strBook)
    for bits in strPictTmp9:
       print("strPictTmp9 bits",bits)
    print("len(strPictTmp9)",len(strPictTmp9))
+
+
+   stru8220Tmp1 = re.split("\\\\u8220.*",strBook)
+   # for bits in stru8220Tmp1:
+   #    print("stru8220Tmp1 bits",bits)
+   # print("len(stru8220Tmp1)",len(stru8220Tmp1))
+
 #
 finally:
    f.close()
