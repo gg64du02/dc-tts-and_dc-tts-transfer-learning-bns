@@ -65,7 +65,10 @@ try:
    # strPoemsTmp3 = re.split("{\\\\ql[\n\rA-Za-z0-9\ \\\\\}\{.,;-\?\t]+\t",strBook)
    # strPoemsTmp3 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{]+",strBook)
    # strPoemsTmp3 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?]+",strBook)
-   strPoemsTmp3 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?\(\)]+",strBook)
+   # strPoemsTmp3 = re.split("{\\\\ql[.*\n\rA-Za-z0-9\ \\\\\}\{\,\;\-\?\(\)]+",strBook)
+
+   # strPoemsTmp3 = re.split("\n{\\\\qc",strBook)
+   strPoemsTmp3 = re.split("{\\\\ql\n.*} {",strBook)
    for bits in strPoemsTmp3:
       print("strPoemsTmp3 bits",bits)
    print("len(strPoemsTmp3)",len(strPoemsTmp3))
