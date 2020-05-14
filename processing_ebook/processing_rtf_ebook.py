@@ -80,6 +80,16 @@ try:
    #    print("stru8220Tmp1 bits",bits)
    # print("len(stru8220Tmp1)",len(stru8220Tmp1))
 
+#    ========================
 #
+   # tmpStrBookCleaned = re.split("{\\\\ql\n.*} {",strBook)
+   # tmpStrBookCleaned = re.split("{\\\\ql\n.*} {|{\\\\\*\\\\shppict[\Wa-z0-9]*}}",strBook)
+   # tmpStrBookCleaned = re.split("{\\\\ql\n.*} {|{\\\\\*\\\\shppict[\Wa-z0-9]*}}",strBook)
+   tmpStrBookCleaned = re.split("{\\\\ql\n.*} {|{\\\\ql\n.*}{|{\\\\\*\\\\shppict[\Wa-z0-9]*}}",strBook)
+   for bits in tmpStrBookCleaned:
+      print("tmpStrBookCleaned bits",bits)
+   print("len(tmpStrBookCleaned)",len(tmpStrBookCleaned))
+
+
 finally:
    f.close()
