@@ -44,12 +44,23 @@ with harvard as source:
         # print("len(bits)",len(bits))
         if(len(bits)!=0):
             # print("strSplittedTxtBook bits",bits)
-            print(bits)
+            # print(bits)
             strSplittedTxtBookWOempty.append(bits)
     print("len(strSplittedTxtBook)",len(strSplittedTxtBook))
     print("len(strSplittedTxtBookWOempty)", len(strSplittedTxtBookWOempty))
 
+    strSplittedTxtBookWOemptyPointSplitted = []
+    for bits in strSplittedTxtBookWOempty:
+        # print("strSplittedTxtBookWOempty bits",bits)
+        bit_values = re.split("\.",bits)
+        for bit_value in bit_values:
+            strSplittedTxtBookWOemptyPointSplitted.append(bit_value)
 
+    print("len(strSplittedTxtBookWOemptyPointSplitted)",len(strSplittedTxtBookWOemptyPointSplitted))
+
+    strSentence = strSplittedTxtBookWOemptyPointSplitted
+
+    
 
 
 # introduction with background music: 0:0:32
