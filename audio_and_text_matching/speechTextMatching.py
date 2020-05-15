@@ -14,10 +14,10 @@ harvard = sr.AudioFile('ThePoetsCorner.wav')
 r = sr.Recognizer()
 
 def timestamp_converter(hour,min,sec):
-    return (3600*hour+60*min+sec)
+    return 3600*hour+60*min+sec
 
 def conv_sec_in_timestamp(sec):
-    return sec//3600,sec//60,sec
+    return sec//3600,sec//60,sec%60
 
 with harvard as source:
     print("source opened")
@@ -71,9 +71,17 @@ with harvard as source:
         print("audioOffsetIndex",audioOffsetIndex)
         tmpAudioOffsetSecondsWindexStart = audioOffsetSeconds+10*audioOffsetIndex
         print("tmpAudioOffsetSecondsWindexStart",tmpAudioOffsetSecondsWindexStart)
+        print("conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexStart)",conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexStart))
         tmpAudioOffsetSecondsWindexEnd = tmpAudioOffsetSecondsWindexStart +20
         print("tmpAudioOffsetSecondsWindexEnd",tmpAudioOffsetSecondsWindexEnd)
+        print("conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexEnd)",conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexEnd))
 
+        audio = r.record(source, offset=tmpAudioOffsetSecondsWindexStart, duration=20)
+        print("audio extracted")
+        # result = r.recognize_sphinx(audio)
+        result = r.recognize_google(audio)
+        print("result",result)
+        # for i in
 
 
 
