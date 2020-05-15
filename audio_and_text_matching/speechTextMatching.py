@@ -63,6 +63,47 @@ with harvard as source:
 
     strArraySentences = strSplittedTxtBookWOemptyPointSplitted
 
+    # generate uniqu couple that can be easily be tied with a specific audio
+    dictOfUniqTwoWordsCouple = []
+    allWordsCouples = []
+    for sentence in strArraySentences:
+        wordsFromTxt = re.split(" ",sentence)
+        wordsFromTxtLen = len(wordsFromTxt)
+        for wordsCoupleIndex in range(wordsFromTxtLen-1):
+            tmpWordsCouple = wordsFromTxt[wordsCoupleIndex] + " " + wordsFromTxt[wordsCoupleIndex+1]
+            allWordsCouples.append(tmpWordsCouple)
+    for couple in allWordsCouples:
+        counts = allWordsCouples.count(couple)
+        # print("allWordsCouples.count(couple)",allWordsCouples.count(couple))
+        # print("counts",counts)
+        if(counts==1):
+            print("couple is:",couple)
+
+
+    # for sentence in strArraySentences:
+    #     once = -1
+    #     wordsFromTxt = re.split(" ",sentence)
+    #     wordsFromTxtLen = len(wordsFromTxt)
+    #     for w in range(wordsFromTxtLen-1):
+    #         # if(wordsFromTxt[w]=="the"):
+    #         #     if(wordsFromTxt[w+1]=="memorization"):
+    #         #         print("if(wordsFromTxt[w+1]==memorization):")
+    #         if(wordsFromTxt[w+1]=="memorization"):
+    #             print("if(wordsFromTxt[w+1]==memorization):")
+    #         tmpWordsCouple = wordsFromTxt[w] + " " + wordsFromTxt[w+1]
+    #         print("sentence",sentence)
+    #         if(tmpWordsCouple in sentence):
+    #             once +=1
+    #         if(once >0):
+    #             print("couple rejected")
+    #             continue
+    #         # if(w==wordsFromTxtLen-1):
+    #         #     if(once ==0):
+    #         #         print("new unig couple")
+    #         if(once ==0):
+    #             print("new unig couple")
+
+
     audioOffsetSeconds = 56
     durationSeconds = 20
 
@@ -86,7 +127,7 @@ with harvard as source:
         wordsFromAudioLen = len(wordsFromAudio)
 
         for i in range(wordsFromAudioLen-1):
-            # print('testing words[i],words[i+1]',words[i],words[i+1])
+            # print('testing wordsFromAudio[i],wordsFromAudio[i+1]',wordsFromAudio[i],wordsFromAudio[i+1])
             numberOfMatchedForThisI = 0
             for sentence in strArraySentences:
                 # print("testing in sentence:", sentence)
@@ -94,7 +135,8 @@ with harvard as source:
                 if(tmpTwoConsecutiveWords in sentence):
                     # print("tmpTwoConsecutiveWords founded")
                     numberOfMatchedForThisI += 1
-            print("numberOfMatchedForThisI",numberOfMatchedForThisI)
+            if(numberOfMatchedForThisI!=0):
+                print("numberOfMatchedForThisI",numberOfMatchedForThisI)
             # if()
 
         # for i in
