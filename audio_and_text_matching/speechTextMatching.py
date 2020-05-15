@@ -16,6 +16,9 @@ r = sr.Recognizer()
 def timestamp_converter(hour,min,sec):
     return (3600*hour+60*min+sec)
 
+def conv_sec_in_timestamp(sec):
+    return sec//3600,sec//60,sec
+
 with harvard as source:
     print("source opened")
     # audio = r.record(source)
@@ -58,9 +61,22 @@ with harvard as source:
 
     print("len(strSplittedTxtBookWOemptyPointSplitted)",len(strSplittedTxtBookWOemptyPointSplitted))
 
-    strSentence = strSplittedTxtBookWOemptyPointSplitted
+    strArraySentences = strSplittedTxtBookWOemptyPointSplitted
 
-    
+    audioOffsetSeconds = 56
+    durationSeconds = 20
+
+    for audioOffsetIndex in range(100):
+        print('==================================')
+        print("audioOffsetIndex",audioOffsetIndex)
+        tmpAudioOffsetSecondsWindexStart = audioOffsetSeconds+10*audioOffsetIndex
+        print("tmpAudioOffsetSecondsWindexStart",tmpAudioOffsetSecondsWindexStart)
+        tmpAudioOffsetSecondsWindexEnd = tmpAudioOffsetSecondsWindexStart +20
+        print("tmpAudioOffsetSecondsWindexEnd",tmpAudioOffsetSecondsWindexEnd)
+
+
+
+
 
 
 # introduction with background music: 0:0:32
