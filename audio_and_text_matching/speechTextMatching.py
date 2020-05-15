@@ -1,3 +1,4 @@
+import re
 
 import speech_recognition as sr
 
@@ -27,8 +28,28 @@ with harvard as source:
     # result = r.recognize_google(audio)
     # result = r.recognize_wit(audio)
     # result = r.recognize_bing(audio)
-    result = r.recognize_sphinx(audio)
+    # result = r.recognize_sphinx(audio)
+    result = ""
+
     print("result",result)
+    fobjectTxtBook = open("B00FORPEAA_EBOK.txt", encoding='utf8')
+
+    # strTxtBook = fobjectTxtBook.readlines()
+    strTxtBook = fobjectTxtBook.read()
+    # print("strTxtBook",strTxtBook)
+
+    strSplittedTxtBook = re.split("\n",strTxtBook)
+    strSplittedTxtBookWOempty =[]
+    for bits in strSplittedTxtBook:
+        # print("len(bits)",len(bits))
+        if(len(bits)!=0):
+            # print("strSplittedTxtBook bits",bits)
+            print(bits)
+            strSplittedTxtBookWOempty.append(bits)
+    print("len(strSplittedTxtBook)",len(strSplittedTxtBook))
+    print("len(strSplittedTxtBookWOempty)", len(strSplittedTxtBookWOempty))
+
+
 
 
 # introduction with background music: 0:0:32
