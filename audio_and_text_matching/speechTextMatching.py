@@ -34,7 +34,7 @@ with harvard as source:
     # result = r.recognize_sphinx(audio)
     result = ""
 
-    print("result",result)
+    print("result:",result)
     fobjectTxtBook = open("B00FORPEAA_EBOK.txt", encoding='utf8')
 
     # strTxtBook = fobjectTxtBook.readlines()
@@ -80,7 +80,23 @@ with harvard as source:
         print("audio extracted")
         # result = r.recognize_sphinx(audio)
         result = r.recognize_google(audio)
-        print("result",result)
+        print("result:",result)
+
+        wordsFromAudio = re.split(" ",result)
+        wordsFromAudioLen = len(wordsFromAudio)
+
+        for i in range(wordsFromAudioLen-1):
+            # print('testing words[i],words[i+1]',words[i],words[i+1])
+            numberOfMatchedForThisI = 0
+            for sentence in strArraySentences:
+                # print("testing in sentence:", sentence)
+                tmpTwoConsecutiveWords = wordsFromAudio[i]+" "+wordsFromAudio[i+1]
+                if(tmpTwoConsecutiveWords in sentence):
+                    # print("tmpTwoConsecutiveWords founded")
+                    numberOfMatchedForThisI += 1
+            print("numberOfMatchedForThisI",numberOfMatchedForThisI)
+            # if()
+
         # for i in
 
 
