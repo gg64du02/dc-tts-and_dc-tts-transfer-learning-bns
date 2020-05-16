@@ -50,13 +50,13 @@ def remove_sil(path_in, path_out, format="wav"):
             tmpSoundBuffer = sound[int[0]:int[1]]
             thepoetscorner_samples_counter += 1
             print("thepoetscorner_samples_counter",thepoetscorner_samples_counter)
-            tmpPathName = "samples/thepoetscorner_{:04}.wav".format(thepoetscorner_samples_counter)
+            tmpPathName = "samples/thepoetscorner_{:05}.wav".format(thepoetscorner_samples_counter)
             print("tmpPathName",tmpPathName)
 
             # making sure the end is included as well
             # tmpSound += tmpSoundBuffer
 
-            tmpSound.export(path_out)
+            tmpSound.export(tmpPathName)
             # tmpAudioSegment.export(path_out)
 
 
@@ -91,11 +91,11 @@ def remove_sil(path_in, path_out, format="wav"):
         #     # index += int[1]-int[0]
         #     # print("index",index)
             
-        # making sure the end is included as well
-        tmpSound += tmpSoundBuffer
-
-        tmpSound.export(path_out)
-        # tmpAudioSegment.export(path_out)
+        # # making sure the end is included as well
+        # tmpSound += tmpSoundBuffer
+        #
+        # tmpSound.export(path_out)
+        # # tmpAudioSegment.export(path_out)
 
 
 # https://audiosegment.readthedocs.io/en/latest/audiosegment.html
