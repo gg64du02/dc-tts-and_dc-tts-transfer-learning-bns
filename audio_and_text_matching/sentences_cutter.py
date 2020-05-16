@@ -56,7 +56,7 @@ def remove_sil(path_in, path_out, format="wav"):
             # making sure the end is included as well
             # tmpSound += tmpSoundBuffer
 
-            tmpSound.export(tmpPathName)
+            tmpSoundBuffer.export(tmpPathName)
             # tmpAudioSegment.export(path_out)
 
 
