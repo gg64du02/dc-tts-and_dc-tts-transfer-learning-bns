@@ -51,7 +51,7 @@ def remove_sil(path_in, path_out, format="wav"):
             tmpSoundBuffer = sound[int[0]:int[1]]
             thepoetscorner_samples_counter += 1
             print("thepoetscorner_samples_counter",thepoetscorner_samples_counter)
-            tmpPathName = "samples/thepoetscorner_{:05}.wav".format(thepoetscorner_samples_counter)
+            tmpPathName = "TPC/samples/thepoetscorner_{:05}.wav".format(thepoetscorner_samples_counter)
             print("tmpPathName",tmpPathName)
 
             # making sure the end is included as well
