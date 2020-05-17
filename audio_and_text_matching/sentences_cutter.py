@@ -9,6 +9,7 @@ def remove_sil(path_in, path_out, format="wav"):
     print("sound.dBFS",sound.dBFS)
     print("sound.dBFS * 1.5",sound.dBFS * 1.5)
     # print()
+    # is actually a 22050Hz file (checked with ffprobe)
     tmpAudioSegment = AudioSegment.silent(duration=1000*(6*60+31*60), frame_rate=44100)
     # return
 
@@ -56,7 +57,8 @@ def remove_sil(path_in, path_out, format="wav"):
             # making sure the end is included as well
             # tmpSound += tmpSoundBuffer
 
-            tmpSoundBuffer.export(tmpPathName)
+            # tmpSoundBuffer.export(tmpPathName)
+            tmpSoundBuffer.export(tmpPathName, format="wav", parameters=["-ar", "22050"])
             # tmpAudioSegment.export(path_out)
 
 
