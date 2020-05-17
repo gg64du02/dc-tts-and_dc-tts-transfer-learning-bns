@@ -18,26 +18,30 @@ metadata_s_r = 'TPC/metadata_speech_recognition.csv'
 for entry in os.listdir(basepath):
     # print(entry)
     if os.path.isfile(os.path.join(basepath, entry)):
-        print("====================================")
+        # print("====================================")
         print(entry)
 
         harvard = sr.AudioFile(os.path.join(basepath, entry))
 
-        print("harvard.filename_or_fileobject",harvard.filename_or_fileobject)
+        # print("harvard.filename_or_fileobject",harvard.filename_or_fileobject)
 
         r = sr.Recognizer()
         with harvard as source:
             tmpString = ''
-            print("source opened")
+            # print("source opened")
             audio = r.record(source)
             # result = r.recognize_google(audio)
-            result = r.recognize_sphinx(audio)
-            # print("result:",result)
-            metadata_s_r_fileO = open(metadata_s_r,'a')
-            tmpString = str(harvard.filename_or_fileobject) + '|' + result + '\n'
-            print("tmpString:",tmpString)
-            metadata_s_r_fileO.write(tmpString)
-            metadata_s_r_fileO.close()
+            try:
+                result = r.recognize_sphinx(audio)
+                # print("result:",result)
+                metadata_s_r_fileO = open(metadata_s_r,'a')
+                tmpString = str(harvard.filename_or_fileobject) + '|' + result + '\n'
+                print("tmpString:",tmpString)
+                metadata_s_r_fileO.write(tmpString)
+                metadata_s_r_fileO.close()
+            except Exception as ex:
+                print(str(ex))
+                print(sys.exc_info())
 
 
 exit()
