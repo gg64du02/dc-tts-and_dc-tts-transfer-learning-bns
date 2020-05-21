@@ -21,8 +21,15 @@ memoryLeft_GB = float(currentAvailableRam_GB - memoryUsed_GB)
 print("memoryLeft_GB",memoryLeft_GB)
 print(type(memoryLeft_GB))
 
+
 while True:
-    if(memoryLeft_GB < 9.):
+    now = datetime.now()
+
+    current_time = now.strftime("%H:%M:%S")
+    print("Current Time =", current_time)
+    time.sleep(1)
+
+    if(memoryLeft_GB < 4.):
         print("kill the ml process")
         PROCNAME = "python.exe"
         for proc in psutil.process_iter():
@@ -31,16 +38,16 @@ while True:
                 print(proc)
                 pid = proc.pid
                 p = psutil.Process(pid)
-                p.terminate()  # or p.kill()
+                print(proc.memory_info()[0])
+                how_much_memory_is_used = proc.memory_info()[0]
+                if(proc.memory_info()[0] > 30 * 1000 * 1000):
+                    print("about to kill the ml process")
+                    p.terminate()  # or p.kill()
+
+
     else:
         print("nothing to kill just yet")
         # nothing to kill just yet
-
-        now = datetime.now()
-
-        current_time = now.strftime("%H:%M:%S")
-        print("Current Time =", current_time)
-        time.sleep(1)
 
 
 
