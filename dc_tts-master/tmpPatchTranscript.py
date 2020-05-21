@@ -40,7 +40,7 @@ for line in fo_content_list:
         durAtion = round(len(audio.frame_data)/(audio.sample_rate*audio.sample_width),2)
         print("durAtion",durAtion)
         result = text
-        tmpString = str(harvard.filename_or_fileobject) + '|' + result +'|' + result + '|' + str(durAtion) +'\n'
+        tmpString = str(entry) + '|' + result +'|' + result + '|' + str(durAtion) +'\n'
         print("tmpString",tmpString)
         fo_transcript_csv_patched = open(metadata_s_r_patched,'a')
         fo_transcript_csv_patched.write(tmpString)
