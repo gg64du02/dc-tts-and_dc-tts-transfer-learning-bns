@@ -63,10 +63,12 @@ def load_data(mode="train"):
             transcript = os.path.join(hp.data, 'transcript.csv')
             lines = codecs.open(transcript, 'r', 'utf-8').readlines()
             for line in lines:
+                print(line.strip().split("|"))
                 # fname, _, text, is_inside_quotes, duration = line.strip().split("|")
+                fname, text, is_inside_quotes, duration = line.strip().split("|")
                 # fname, _, text = line.strip().split("|")
-                fname, text = line.strip().split("|")
-                duration = 0
+                # fname, text = line.strip().split("|")
+                # duration = 0
                 duration = float(duration)
                 if duration > 10. : continue
 
