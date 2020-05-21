@@ -36,7 +36,9 @@ for entry in os.listdir(basepath):
                 result = r.recognize_sphinx(audio)
                 # print("result:",result)
                 metadata_s_r_fileO = open(metadata_s_r,'a')
-                tmpString = str(harvard.filename_or_fileobject) + '|' + result + '\n'
+                durAtion = round(len(audio.frame_data)/(audio.sample_rate*audio.sample_width),2)
+                print("durAtion",durAtion)
+                tmpString = str(harvard.filename_or_fileobject) + '|' + result +'|' + result + '|' + str(durAtion) +'\n'
                 print("tmpString:",tmpString)
                 metadata_s_r_fileO.write(tmpString)
                 metadata_s_r_fileO.close()
