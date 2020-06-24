@@ -11,3 +11,4 @@ audio_and_text_matching/TPC/*
 *.pyc
 *logdir*
 */data/*
+hand_cleaning_tpc/*
