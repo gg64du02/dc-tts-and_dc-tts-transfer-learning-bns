@@ -5,15 +5,17 @@ from pydub import AudioSegment
 
 def remove_sil(path_in, path_out, format="wav"):
     sound = AudioSegment.from_file(path_in, format=format)
-    print("sound",sound)
-    print("sound.dBFS",sound.dBFS)
-    print("sound.dBFS * 1.5",sound.dBFS * 1.5)
+    # print("sound",sound)
+    # print("sound.dBFS",sound.dBFS)
+    # print("sound.dBFS * 1.5",sound.dBFS * 1.5)
     # print()
     # is actually a 22050Hz file (checked with ffprobe)
     tmpAudioSegment = AudioSegment.silent(duration=1000*(6*60+31*60), frame_rate=44100)
     # return
     if(sound.duration_seconds<= 10):
         print("if(sound.duration_seconds<= 10):")
+        tmpPathName = path_in[:11] + "3" + path_in[12:-4] + "_00001.wav"
+        sound.export(tmpPathName, format="wav", parameters=["-ar", "22050"])
         return
 
     tmpSound =  AudioSegment.empty()
