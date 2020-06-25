@@ -111,5 +111,19 @@ def remove_sil(path_in, path_out, format="wav"):
 # tmpPathName = "samples/thepoetscorner_{:04}".format(lol)
 # print("tmpPathName",tmpPathName)
 
+import os
+dir_to_process = "TPC/samples/"
+# print(os.listdir(dir_to_process))
+files_list = os.listdir(dir_to_process)
+for filename in files_list:
+    # print("filename",filename)
+    # print(os.path.join(dir_to_process, filename))
+    fp_fname = os.path.join(dir_to_process, filename)
+    print("fp_fname",fp_fname)
+
+    remove_sil(fp_fname, "ThePoetsCorner_clean_2_59_00_silence-removed.wav")
+
+exit()
+
 remove_sil("TPC/samples/ThePoetsCorner_2_59_00_no_peom_by_mf_00034.wav", "ThePoetsCorner_clean_2_59_00_silence-removed.wav")
 # remove_sil("totakas-song.wav","totakas-song_silence-removed.wav")
