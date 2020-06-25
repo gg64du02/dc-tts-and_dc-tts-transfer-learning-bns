@@ -54,7 +54,9 @@ def remove_sil(path_in, path_out, format="wav"):
             tmpSoundBuffer = sound[int[0]:int[1]]
             thepoetscorner_samples_counter += 1
             print("thepoetscorner_samples_counter",thepoetscorner_samples_counter)
-            tmpPathName = "TPC/samples2/ThePoetsCorner_2_59_00_no_peom_by_mf_{:05}.wav".format(thepoetscorner_samples_counter)
+            # tmpPathName = "TPC/samples2/ThePoetsCorner_2_59_00_no_peom_by_mf_{:05}.wav".format(thepoetscorner_samples_counter)
+            tmpPathName = path_in[:11] + "2" + path_in[11:-4] + "_{:05}.wav".format(thepoetscorner_samples_counter)
+            tmpPathName = str(tmpPathName)
             print("tmpPathName",tmpPathName)
 
             # making sure the end is included as well
@@ -109,6 +111,5 @@ def remove_sil(path_in, path_out, format="wav"):
 # tmpPathName = "samples/thepoetscorner_{:04}".format(lol)
 # print("tmpPathName",tmpPathName)
 
-
-remove_sil("TPC/samples/ThePoetsCorner_2_59_00_no_peom_by_mf_00004.wav", "ThePoetsCorner_clean_2_59_00_silence-removed.wav")
+remove_sil("TPC/samples/ThePoetsCorner_2_59_00_no_peom_by_mf_00034.wav", "ThePoetsCorner_clean_2_59_00_silence-removed.wav")
 # remove_sil("totakas-song.wav","totakas-song_silence-removed.wav")
