@@ -13,6 +13,7 @@ def remove_sil(path_in, path_out, format="wav"):
     tmpAudioSegment = AudioSegment.silent(duration=1000*(6*60+31*60), frame_rate=44100)
     # return
     if(sound.duration_seconds<= 10):
+        print("if(sound.duration_seconds<= 10):")
         return
 
     tmpSound =  AudioSegment.empty()
@@ -21,8 +22,8 @@ def remove_sil(path_in, path_out, format="wav"):
     # non_sil_times = detect_nonsilent(sound, min_silence_len=10, silence_thresh=sound.dBFS * 1.5)
     # non_sil_times = detect_nonsilent(sound, min_silence_len=10, silence_thresh=sound.dBFS * 2.25)
     # non_sil_times = detect_nonsilent(sound, min_silence_len=10, silence_thresh=sound.dBFS * 1.225)
-    non_sil_times = detect_nonsilent(sound, min_silence_len=10, silence_thresh=sound.dBFS * 3.375)
-    # non_sil_times = detect_nonsilent(sound, min_silence_len=10, silence_thresh=sound.dBFS * 4)
+    # non_sil_times = detect_nonsilent(sound, min_silence_len=10, silence_thresh=sound.dBFS * 3.375)
+    non_sil_times = detect_nonsilent(sound, min_silence_len=10, silence_thresh=sound.dBFS * 3)
     print("detect_nonsilent done")
     # print("non_sil_times",non_sil_times)
     if len(non_sil_times) > 0:
@@ -57,7 +58,7 @@ def remove_sil(path_in, path_out, format="wav"):
             thepoetscorner_samples_counter += 1
             print("thepoetscorner_samples_counter",thepoetscorner_samples_counter)
             # tmpPathName = "TPC/samples2/ThePoetsCorner_2_59_00_no_peom_by_mf_{:05}.wav".format(thepoetscorner_samples_counter)
-            tmpPathName = path_in[:11] + "3" + path_in[11:-4] + "_{:05}.wav".format(thepoetscorner_samples_counter)
+            tmpPathName = path_in[:11] + "3" + path_in[12:-4] + "_{:05}.wav".format(thepoetscorner_samples_counter)
             tmpPathName = str(tmpPathName)
             print("tmpPathName",tmpPathName)
 
@@ -114,7 +115,7 @@ def remove_sil(path_in, path_out, format="wav"):
 # print("tmpPathName",tmpPathName)
 
 import os
-dir_to_process = "TPC/samples/"
+dir_to_process = "TPC/samples2/"
 # print(os.listdir(dir_to_process))
 files_list = os.listdir(dir_to_process)
 for filename in files_list:
