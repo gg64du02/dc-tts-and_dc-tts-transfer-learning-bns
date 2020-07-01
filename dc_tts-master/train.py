@@ -140,8 +140,11 @@ if __name__ == '__main__':
 
     g = Graph(num=num); print("Training Graph loaded")
 
+    mySaver = tf.train.Saver(max_to_keep=30)
+    print("mySaver")
+
     logdir = hp.logdir + "-" + str(num)
-    sv = tf.train.Supervisor(logdir=logdir, save_model_secs=0, global_step=g.global_step)
+    sv = tf.train.Supervisor(logdir=logdir, save_model_secs=0, global_step=g.global_step,saver = mySaver)
     with sv.managed_session() as sess:
         while 1:
             for _ in tqdm(range(g.num_batch), total=g.num_batch, ncols=70, leave=False, unit='b'):
