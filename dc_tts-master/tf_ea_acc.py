@@ -4,6 +4,7 @@ from tensorboard.backend.event_processing import event_accumulator
 
 #ea = event_accumulator.EventAccumulator('events.out.tfevents.x.ip-x-x-x-x', 
 ea = event_accumulator.EventAccumulator('./logdir/new_hand_cleaned/LJ01-2/events.out.tfevents.1594247561.SHADOW-TA0HD7L3', 
+#ea = event_accumulator.EventAccumulator('./logdir/new_hand_cleaned/LJ01-2/events.out.tfevents.1594289892.SHADOW-TA0HD7L3', 
 size_guidance={ # see below regarding this argument 
 event_accumulator.COMPRESSED_HISTOGRAMS: 500, 
 event_accumulator.IMAGES: 4, 
@@ -44,9 +45,12 @@ import matplotlib.pyplot as plt
 
 
 ax1 = plt.subplot(311)
+plt.ylabel('LR')
 plt.plot(LRlist)
 ax2 = plt.subplot(312)
+plt.ylabel('loss_mags')
 plt.plot(loss_magsList)
 ax3 = plt.subplot(313)
+plt.ylabel('loss_bd2')
 plt.plot(loss_bd2List)
 plt.show()
