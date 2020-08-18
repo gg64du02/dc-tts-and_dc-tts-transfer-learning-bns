@@ -1,3 +1,5 @@
+from https://github.com/Kyubyong/dc_tts
+
 # A TensorFlow Implementation of DC-TTS: yet another text-to-speech model
 
 I implement yet another text-to-speech model, dc-tts, introduced in [Efficiently Trainable Text-to-Speech System Based on Deep Convolutional Networks with Guided Attention](https://arxiv.org/abs/1710.08969). My goal, however, is not just replicating the paper. Rather, I'd like to gain insights about various sound projects.

@@ -1,3 +1,5 @@
+from https://github.com/SeanPLeary/dc_tts-transfer-learning
+
 # dc_tts-transfer-learning
 
 This repo contains attempts to apply transfer learning to the dc_tts text-to-speech model decribed in the paper [Efficiently Trainable Text-to-Speech System Based on Deep Convolutional Networks with Guided Attention](https://arxiv.org/abs/1710.08969). The code used is a modified version of [Kyubyong's dc_tts code](https://github.com/Kyubyong/dc_tts). The [pretrained model](https://www.dropbox.com/s/1oyipstjxh2n5wo/LJ_logdir.tar?dl=0) was also provided in Kyubong's repo. It was pretrained on the [LJ Speech Dataset](https://keithito.com/LJ-Speech-Dataset/). Scarlett Johansson's voice was trained during transfer learning
