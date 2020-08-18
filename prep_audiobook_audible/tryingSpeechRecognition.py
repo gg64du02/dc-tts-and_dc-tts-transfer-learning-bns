@@ -2,6 +2,9 @@
 import speech_recognition as sr
 
 print("sr.__version__",sr.__version__)
+print("sr.__file__",sr.__file__)
+
+exit()
 
 # harvard = sr.AudioFile('harvard.wav')
 # harvard = sr.AudioFile('totakas-song.wav')
