@@ -63,21 +63,23 @@ with harvard as source:
 
     strArraySentences = strSplittedTxtBookWOemptyPointSplitted
 
-    # generate uniqu couple that can be easily be tied with a specific audio
-    dictOfUniqTwoWordsCouple = []
-    allWordsCouples = []
-    for sentence in strArraySentences:
-        wordsFromTxt = re.split(" ",sentence)
-        wordsFromTxtLen = len(wordsFromTxt)
-        for wordsCoupleIndex in range(wordsFromTxtLen-1):
-            tmpWordsCouple = wordsFromTxt[wordsCoupleIndex] + " " + wordsFromTxt[wordsCoupleIndex+1]
-            allWordsCouples.append(tmpWordsCouple)
-    for couple in allWordsCouples:
-        counts = allWordsCouples.count(couple)
-        # print("allWordsCouples.count(couple)",allWordsCouples.count(couple))
-        # print("counts",counts)
-        if(counts==1):
-            print("couple is:",couple)
+    # # generate uniqu couple that can be easily be tied with a specific audio
+    # dictOfUniqTwoWordsCouple = []
+    # allWordsCouples = []
+    # for sentence in strArraySentences:
+    #     wordsFromTxt = re.split(" ",sentence)
+    #     wordsFromTxtLen = len(wordsFromTxt)
+    #     for wordsCoupleIndex in range(wordsFromTxtLen-1):
+    #         tmpWordsCouple = wordsFromTxt[wordsCoupleIndex] + " " + wordsFromTxt[wordsCoupleIndex+1]
+    #         allWordsCouples.append(tmpWordsCouple)
+    # for couple in allWordsCouples:
+    #     counts = allWordsCouples.count(couple)
+    #     # print("allWordsCouples.count(couple)",allWordsCouples.count(couple))
+    #     # print("counts",counts)
+    #     # if(counts==1):
+    #     #     print("couple is:",couple)
+    # print("len(allWordsCouples)",len(allWordsCouples))
+
 
 
     # for sentence in strArraySentences:
@@ -104,23 +106,25 @@ with harvard as source:
     #             print("new unig couple")
 
 
-    audioOffsetSeconds = 56
+    audioOffsetSeconds = 52
     durationSeconds = 20
 
-    for audioOffsetIndex in range(100):
+    for audioOffsetIndex in range(10):
+        continue
         print('==================================')
         print("audioOffsetIndex",audioOffsetIndex)
         tmpAudioOffsetSecondsWindexStart = audioOffsetSeconds+10*audioOffsetIndex
         print("tmpAudioOffsetSecondsWindexStart",tmpAudioOffsetSecondsWindexStart)
         print("conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexStart)",conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexStart))
-        tmpAudioOffsetSecondsWindexEnd = tmpAudioOffsetSecondsWindexStart +20
+        tmpAudioOffsetSecondsWindexEnd = tmpAudioOffsetSecondsWindexStart +30
         print("tmpAudioOffsetSecondsWindexEnd",tmpAudioOffsetSecondsWindexEnd)
         print("conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexEnd)",conv_sec_in_timestamp(tmpAudioOffsetSecondsWindexEnd))
 
-        audio = r.record(source, offset=tmpAudioOffsetSecondsWindexStart, duration=20)
+        audio = r.record(source, offset=tmpAudioOffsetSecondsWindexStart, duration=30)
         print("audio extracted")
         # result = r.recognize_sphinx(audio)
         result = r.recognize_google(audio)
+        # result = "I love that I can trace my love of poetry back to my childhood and my grandmother was born in the 19th century and grew up on the island of Nantucket was one of the last generations to make the memorization"
         print("result:",result)
 
         wordsFromAudio = re.split(" ",result)
@@ -135,13 +139,14 @@ with harvard as source:
                 if(tmpTwoConsecutiveWords in sentence):
                     # print("tmpTwoConsecutiveWords founded")
                     numberOfMatchedForThisI += 1
-            if(numberOfMatchedForThisI!=0):
-                print("numberOfMatchedForThisI",numberOfMatchedForThisI)
+            # if(numberOfMatchedForThisI!=0):
+                # print("numberOfMatchedForThisI",numberOfMatchedForThisI)
             # if()
 
         # for i in
 
-
+    for sentence in strArraySentences:
+        print("sentence:",sentence)
 
 
 
