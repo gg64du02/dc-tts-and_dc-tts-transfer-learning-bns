@@ -166,9 +166,12 @@ if __name__ == '__main__':
     num = int(sys.argv[1])
 
     g = Graph(num=num); print("Training Graph loaded")
+    
+    mySaver = tf.train.Saver(max_to_keep=60)
 
     logdir = hp.logdir + "-" + str(num)
-    sv = tf.train.Supervisor(logdir=logdir, save_model_secs=0, global_step=g.global_step)
+    #sv = tf.train.Supervisor(logdir=logdir, save_model_secs=0, global_step=g.global_step)
+    sv = tf.train.Supervisor(logdir=logdir, save_model_secs=0, global_step=g.global_step,saver=mySaver)
     #with sv.managed_session() as sess:
     with sv.managed_session(config = tf.ConfigProto(allow_soft_placement=True)) as sess:
         sv.saver.restore(sess, tf.train.latest_checkpoint(hp.restoredir + "-" + str(num)))
@@ -184,6 +187,10 @@ if __name__ == '__main__':
                         # plot alignment
                         alignments = sess.run(g.alignments)
                         plot_alignment(alignments[0], str(gs // 1000).zfill(3) + "k", logdir)
+                
+                
+                # break
+                if gs > 750000: exit()
 
                 # break
                 if gs > hp.num_iterations: break
