@@ -13,3 +13,4 @@ audio_and_text_matching/TPC/*
 */data/*
 hand_cleaning_tpc/*
 *.zip
+*.lnk
