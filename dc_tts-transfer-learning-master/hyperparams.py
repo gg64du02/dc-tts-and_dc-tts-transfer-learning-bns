@@ -10,7 +10,7 @@ https://github.com/SeanPLeary/dc_tts-transfer-learning
 class Hyperparams:
     '''Hyper parameters'''
     # pipeline
-    prepro = True  # if True, run `python prepro.py` first before running `python train.py`.
+    prepro = False  # if True, run `python prepro.py` first before running `python train.py`.
     
     # signal processing
     sr = 22050  # Sampling rate.
@@ -34,20 +34,29 @@ class Hyperparams:
     c = 512 # == hidden units of SSRN
     attention_win_size = 3
 
+
+    that_dir = "C:/ML/dc-tts-tacotron-bns-master/dc_tts-master"
+    that_dir_transfer_learning = "C:/ML/dc-tts-tacotron-bns-master/dc_tts-transfer-learning-master"
+#C:\ML\dc-tts-tacotron-bns-master\dc_tts-transfer-learning-master\LJ_logdir_original
     # data
     #data = "/data/private/voice/LJSpeech-1.0"
-    data = "/data/private/voice/scarlett"
-    test_data = 'test_sentences.txt'
+    # data = "/data/private/voice/"
+    #data = that_dir +  "/data/new_hand_cleaned_early_cuts_removed/"
+    data = that_dir +  "/data/new_hand_cleaned/"
+    #test_data = that_dir_transfer_learning + '/test_sentences.txt'
+    test_data = that_dir_transfer_learning + '/navy_seal_copypasta.txt'
     vocab = "PE abcdefghijklmnopqrstuvwxyz'.?" # P: Padding, E: EOS.
     max_N = 180 # Maximum number of characters.
     max_T = 210 # Maximum number of mel frames.
 
     # training scheme
     lr = 0.001 # Initial learning rate.
-    logdir = "/output/logdir/scarjo"
+    #logdir = "/output/logdir/scarjo"
+    logdir = that_dir_transfer_learning + "/logdir_tranfered/LJ01"
     #restoredir = "/output2/logdir/scarjo"
-    restoredir = "/output2/logdir/LJ01" # location of pre-trained LJSpeech-1.0 model w/ checkpoint
-    sampledir = '/output/samples'
+    #restoredir = "/output2/logdir/LJ01" # location of pre-trained LJSpeech-1.0 model w/ checkpoint
+    restoredir = that_dir_transfer_learning + "/LJ_logdir_mod/LJ01"
+    sampledir = that_dir_transfer_learning + '/samples'
     B = 32
     num_iterations = 2000000
 
