@@ -65,7 +65,8 @@ def load_data(mode="train"):
             for line in lines:
                 print(line.strip().split("|"))
                 # fname, _, text, is_inside_quotes, duration = line.strip().split("|")
-                fname, text, is_inside_quotes, duration = line.strip().split("|")
+                # fname, text, is_inside_quotes, duration = line.strip().split("|")
+                fname, duration, text  = line.strip().split("|")
                 # fname, _, text = line.strip().split("|")
                 # fname, text = line.strip().split("|")
                 # duration = 0
@@ -75,6 +76,9 @@ def load_data(mode="train"):
                 fpath = os.path.join(hp.data, fname)
                 fpaths.append(fpath)
 
+                print("line",line)
+
+                text = text.lower()
                 text += "E"  # E: EOS
                 text = [char2idx[char] for char in text]
                 text_lengths.append(len(text))
