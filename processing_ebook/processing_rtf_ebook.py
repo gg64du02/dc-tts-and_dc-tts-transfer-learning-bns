@@ -2,7 +2,7 @@ import re
 
 try:
    # f = open("test.txt", encoding = 'utf-8')
-   f = open("./test/B00FORPEAA_EBOK.txt", encoding = 'utf-8')
+   f = open("./test/B00FORPEAA_EBOK.txt.rtf", encoding = 'utf-8')
    # perform file operations
    strBook = f.read()
    # print("strBook",strBook)
@@ -87,7 +87,21 @@ try:
    # tmpStrBookCleaned = re.split("{\\\\ql\n.*} {|{\\\\\*\\\\shppict[\Wa-z0-9]*}}",strBook)
    tmpStrBookCleaned = re.split("{\\\\ql\n.*} {|{\\\\ql\n.*}{|{\\\\\*\\\\shppict[\Wa-z0-9]*}}",strBook)
    for bits in tmpStrBookCleaned:
+      # if(bits[0]!=' '):
+      # print("tmpStrBookCleaned bits",bits)
+      # else:
+      #    print("!tmpStrBookCleaned bits",bits)
+      # intNum = 123
+      # print("0x%x" % (intNum))
+      # print("tmpStrBookCleaned bits","0x%x" % int(bits))
+      # print("tmpStrBookCleaned bits.hex()",bits.encode('utf-8').hex())
+      # if(bits[0]=='\t'):
+      #    # print('lol1')
+      #    pass
+      # else:
+      #    # print('lol2')
       print("tmpStrBookCleaned bits",bits)
+
    print("len(tmpStrBookCleaned)",len(tmpStrBookCleaned))
 
 
