@@ -12,3 +12,4 @@ audio_and_text_matching/TPC/*
 *logdir*
 */data/*
 hand_cleaning_tpc/*
+*.zip
