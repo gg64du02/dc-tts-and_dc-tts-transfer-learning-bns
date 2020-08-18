@@ -81,7 +81,7 @@ def load_data(mode="train"):
                 #fname, _, text, is_inside_quotes, duration = line.strip().split("|")
                 #duration = float(duration)
                 #if duration > 10. : continue
-                fname, text = line.strip().split("|")
+                fname, duration,text = line.strip().split("|")
                 text = text.lower()
                 text = text.replace('-', ' ')
                 numbers = re.search('[0-9]+', text)
