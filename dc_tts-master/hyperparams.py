@@ -36,16 +36,17 @@ class Hyperparams:
     # data
     # data = "/data/private/voice/LJSpeech-1.0"
     # data = "./data/"
-    data = that_dir +  "/data"
+    data = that_dir +  "/data/new_hand_cleaned"
     # data = "/data/private/voice/kate"
-    test_data = 'harvard_sentences.txt'
+    test_data = that_dir +'/harvard_sentences.txt'
     vocab = "PE abcdefghijklmnopqrstuvwxyz'.?" # P: Padding, E: EOS.
     max_N = 180 # Maximum number of characters.
     max_T = 210 # Maximum number of mel frames.
 
     # training scheme
     lr = 0.001 # Initial learning rate.
-    logdir = that_dir + "/logdir/LJ01"
-    sampledir = 'samples'
-    B = 32 # batch size
+    logdir = that_dir + "/logdir/new_hand_cleaned/LJ01"
+    sampledir =  that_dir +'/samples'
+    #B = 32 # batch size
+    B = 4 # batch size
     num_iterations = 2000000
