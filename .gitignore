@@ -14,3 +14,4 @@ audio_and_text_matching/TPC/*
 hand_cleaning_tpc/*
 *.zip
 *.lnk
+*transcript*.csv
