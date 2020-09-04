@@ -1,0 +1,5 @@
+pip list -v
+
+https://github.com/librosa/librosa/issues/987
+
+I also met this problem. I think this may be caused by some kind of access violation. Grant the permission of Modify and Write to Users on the librosa package folder may be a workaround, and this worked for me.
